@@ -13,7 +13,7 @@ export async function getCabins() {
 }
 
 export async function createEditCabin(newCabin, id) {
-  const hasImagePath = newCabin.image?.startsWith(supabaseUrl);
+  const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
 
   const imageName = hasImagePath
     ? newCabin.image
@@ -22,8 +22,10 @@ export async function createEditCabin(newCabin, id) {
         .replaceAll(" ", "-");
 
   //image patch
-  const imagePath = hasImagePath ? imageName : `${supabaseUrl}/storage/v1/object/public/cabin_images/${imageName}`;
-  console.log({imagePath, hasImagePath})
+  const imagePath = hasImagePath
+    ? imageName
+    : `${supabaseUrl}/storage/v1/object/public/cabin_images/${imageName}`;
+  console.log({ imagePath, hasImagePath });
 
   // 1. create/edit a cabin
   let query = supabase.from("cabins");

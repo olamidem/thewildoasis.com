@@ -11,6 +11,7 @@ import FormRow from "../../ui/FormRow";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createCabin } from "../../services/apiCabins";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function CreateCabinForm() {
   const { register, handleSubmit, reset, getValues, formState } = useForm();
@@ -126,7 +127,7 @@ function CreateCabinForm() {
         <Button variation="secondary" type="reset">
           Cancel
         </Button>
-        <Button disabled={isCreating}>Add cabin</Button>
+        {isCreating ? <SpinnerMini /> : <Button>Add cabin</Button>}
       </FormRow>
     </Form>
   );
