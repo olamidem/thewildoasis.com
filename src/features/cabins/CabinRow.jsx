@@ -98,6 +98,7 @@ function CabinRow({cabin}) {
                         <HiTrash/>
                     </button>
                 </div>
+
             </TableRow>
 
             {showForm && <CreateCabinForm cabinToEdit={cabin}/>}
