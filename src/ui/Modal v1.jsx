@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
-import {HiXMark} from "react-icons/hi2";
-import {createPortal} from "react-dom";
+import { HiXMark } from "react-icons/hi2";
+import { createPortal } from "react-dom";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -51,20 +51,18 @@ const Button = styled.button`
   }
 `;
 
-function Modal({children, onClose}) {
-    return createPortal(
-        <Overlay>
-            <StyledModal>
-                <Button onClick={onClose}>
-                    <HiXMark/>
-                </Button>
-                <div>
-                    {children}
-                </div>
-            </StyledModal>
-        </Overlay>,
-        document.body
-    )
+function Modal({ children, onClose }) {
+  return createPortal(
+    <Overlay>
+      <StyledModal>
+        <Button onClick={onClose}>
+          <HiXMark />
+        </Button>
+        <div>{children}</div>
+      </StyledModal>
+    </Overlay>,
+    document.body
+  );
 }
 
-export default Modal
+export default Modal;
